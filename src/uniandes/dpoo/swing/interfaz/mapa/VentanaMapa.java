@@ -16,34 +16,16 @@ import uniandes.dpoo.swing.mundo.Restaurante;
 @SuppressWarnings("serial")
 public class VentanaMapa extends JFrame implements ActionListener
 {
-    /**
-     * El comando para reconocer al radio que muestra sólo los restaurantes visitados
-     */
     private static final String VISITADOS = "VISITADOS";
 
-    /**
-     * El comando para reconocer al radio que muestra todos los restaurantes
-     */
     private static final String TODOS = "TODOS";
 
-    /**
-     * El panel con el mapa
-     */
     private PanelMapaVisualizar panelMapa;
 
-    /**
-     * El radio button para hacer que se muestren todos los restaurantes. Si este está activo, radioVisitados debe estar inactivo.
-     */
     private JRadioButton radioTodos;
 
-    /**
-     * El radio button para hacer que se muestren sólo los restaurantes visitados. Si este está activo, radioTodos debe estar inactivo.
-     */
     private JRadioButton radioVisitados;
 
-    /**
-     * La referencia a la ventana principal
-     */
     private VentanaPrincipal ventanaPrincipal;
 
     public VentanaMapa( VentanaPrincipal ventanaPrincipal, List<Restaurante> restaurantes )
@@ -52,12 +34,12 @@ public class VentanaMapa extends JFrame implements ActionListener
 
         setLayout( new BorderLayout( ) );
 
-        // Agrega el panel donde se muestra el mapa
+        // agrega el panel donde se muestra el mapa
         panelMapa = new PanelMapaVisualizar( );
         panelMapa.actualizarMapa( restaurantes );
         add( panelMapa, BorderLayout.CENTER );
 
-        // Agrega el panel con los RadioButtons y los configura
+        // agrega el panel con los RadioButtons y los configura
         radioTodos = new JRadioButton( "Todos" );
         radioTodos.setActionCommand( TODOS );
         radioTodos.addActionListener( this );
@@ -67,7 +49,7 @@ public class VentanaMapa extends JFrame implements ActionListener
         radioVisitados.setActionCommand( VISITADOS );
         radioVisitados.addActionListener( this );
 
-        // El ButtonGroup garantiza que solo uno de los dos esté activo a la vez
+        // el ButtonGroup garantiza que solo uno de los dos esté activo a la vez
         ButtonGroup grupo = new ButtonGroup( );
         grupo.add( radioTodos );
         grupo.add( radioVisitados );
@@ -77,7 +59,7 @@ public class VentanaMapa extends JFrame implements ActionListener
         panelRadios.add( radioVisitados );
         add( panelRadios, BorderLayout.SOUTH );
 
-        // Termina de configurar la ventana y la muestra
+        // termina de configurar la ventana y la muestra
         pack( );
         setResizable( false );
         setDefaultCloseOperation( DISPOSE_ON_CLOSE );

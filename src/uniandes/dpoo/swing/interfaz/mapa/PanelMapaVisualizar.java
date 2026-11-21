@@ -16,14 +16,8 @@ import uniandes.dpoo.swing.mundo.Restaurante;
 @SuppressWarnings("serial")
 public class PanelMapaVisualizar extends JPanel
 {
-    /**
-     * La etiqueta donde se dibuja el mapa y se hacen las señales de los restaurantes
-     */
     private JLabel labMapa;
 
-    /**
-     * La lista de restaurantes que se están dibujando en el mapa
-     */
     private List<Restaurante> restaurantes;
 
     public PanelMapaVisualizar( )
@@ -47,19 +41,15 @@ public class PanelMapaVisualizar extends JPanel
             int x = r.getX( );
             int y = r.getY( );
 
-            // Punto rojo en la ubicación del restaurante
+            // punto rojo en la ubicación del restaurante
             g2d.setColor( Color.RED );
             g2d.fillOval( x - 3, y - 3, 7, 7 );
 
-            // Nombre del restaurante al lado del punto
+            // nombre del restaurante al lado del punto
             g2d.drawString( r.getNombre( ), x + 6, y + 4 );
         }
     }
 
-    /**
-     * Actualiza la lista de restaurantes y llama al método repaint() para que se actualice el mapa
-     * @param nuevosRestaurantes
-     */
     public void actualizarMapa( List<Restaurante> nuevosRestaurantes )
     {
         if( restaurantes != null )
